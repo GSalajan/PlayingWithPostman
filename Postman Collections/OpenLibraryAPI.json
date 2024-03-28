@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "0b38d7f8-4e40-463e-b635-32ed3cb0d44b",
+		"name": "Open library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all lists for a particular user",
+			"id": "c312f8f5-1259-4ac5-8e7d-ba1b27339987",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/people/:username/lists.json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"people",
+						":username",
+						"lists.json"
+					],
+					"variable": [
+						{
+							"id": "458992f1-1ee8-4e41-a236-9f9ef0e89a2f",
+							"key": "username",
+							"value": "vdespa"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "fc8b722a-734c-41cb-98c1-69e90b282011",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "09e371ab-956b-450d-abbd-67f9628c3710",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://openlibrary.org",
+			"disabled": true
+		},
+		{
+			"value": "",
+			"type": "string"
+		}
+	]
+}
