@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "055bf1bb-2268-42eb-b8c4-4635a1ca9c16",
+		"name": "Car fleet management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CRUD",
+			"item": [
+				{
+					"name": "Get all cars",
+					"id": "fe97bcbd-b39d-474b-b6c9-950cd73016ae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/cars"
+					},
+					"response": []
+				},
+				{
+					"name": "Get car by id",
+					"id": "71ad9e03-b22f-47ab-a2fb-594c9ec7ec78",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cars/:carId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cars",
+								":carId"
+							],
+							"variable": [
+								{
+									"id": "d3fa19ee-c4ec-4d8f-8e1e-a0879363d062",
+									"key": "carId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all repairs for a certain car",
+					"id": "ce338641-ff47-446f-a0f8-d1dce8ebe29d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cars/:carId/repairs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cars",
+								":carId",
+								"repairs"
+							],
+							"variable": [
+								{
+									"id": "4ca1b5ef-1e3d-4bd1-bc72-88d1cc073424",
+									"key": "carId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get certain repair for certain car",
+					"id": "14d4e0cb-8417-446a-b3c2-3f005750e868",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cars/:carId/repairs/:repairId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cars",
+								":carId",
+								"repairs",
+								":repairId"
+							],
+							"variable": [
+								{
+									"id": "9fd01a2e-b2e4-4292-9e85-7d4b88a4f34a",
+									"key": "carId",
+									"value": "1"
+								},
+								{
+									"id": "da1f3998-26e9-4fa6-a89d-5ccb66bff0a7",
+									"key": "repairId",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "3d258a1e-1c80-4fe4-ad81-5af7e11aaee1"
+		}
+	]
+}
