@@ -565,6 +565,26 @@
 			"item": [
 				{
 					"name": "Get status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6d3ccb93-e3b8-4096-b8b9-cfcac1b011fc",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check the status\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.status).to.eql(\"UP\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "7d227128-3dcf-4f2d-a1d7-3bbc245f8c3d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
