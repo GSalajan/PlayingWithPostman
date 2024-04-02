@@ -1286,6 +1286,80 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "Invalid inputs",
+					"item": [
+						{
+							"name": "Get all products Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b7c8983d-62e6-49cd-b621-a9f295f040a6",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "be20a562-fb15-46d7-a4ce-d3d9f2127f92",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ef2c7e15-5aef-408e-ac17-103e5d7b235e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "coffee",
+											"description": "Specifies the category of products you want to be returned. It can be one of: meat-seafood, fresh-produce, candy, bread-bakery, dairy, eggs, coffee.",
+											"disabled": true
+										},
+										{
+											"key": "results",
+											"value": "2",
+											"description": "Specifies the number of results you want. Must be number between 1 and 20. By default, only 20 products will be displayed.",
+											"disabled": true
+										},
+										{
+											"key": "available",
+											"value": null,
+											"description": "Specifies the availability of the products. By default, all products will be displayed.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Returns a list of products from the inventory."
+							},
+							"response": []
+						}
+					],
+					"id": "30b9b1cb-a386-41e6-b3f8-02ff35fb357e"
 				}
 			],
 			"id": "0260a8ac-dece-42a1-b7de-1edaa423c9d5",
