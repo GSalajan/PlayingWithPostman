@@ -1027,243 +1027,276 @@
 			"name": "Negative path",
 			"item": [
 				{
-					"name": "Missing authentication",
+					"name": "Requests requiring authentication",
 					"item": [
 						{
-							"name": "Create an order",
-							"event": [
+							"name": "Missing authentication",
+							"item": [
 								{
-									"listen": "prerequest",
-									"script": {
-										"id": "042f20b2-4a11-401a-aa07-e8afcc6878d2",
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
+									"name": "Create an order",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "042f20b2-4a11-401a-aa07-e8afcc6878d2",
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
+												"exec": [
+													"//there's also at folder level a test for checking the status no.\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "98985300-f3a7-4d52-9ae3-8e4575c33e4d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"cartId\": \"{{cartId}}\",\r\n    \"customerName\": \"John Doe\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{url}}/orders",
+										"description": "The request body needs to be in JSON format. Once the order has been successfully submitted, the cart is deleted."
+									},
+									"response": []
 								},
 								{
-									"listen": "test",
-									"script": {
-										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
-										"exec": [
-											"//there's also at folder level a test for checking the status no.\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
+									"name": "Get all orders",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "fd3ee0a1-46cc-4833-a4fa-e760c89451a8",
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
+												"exec": [
+													"//there's also at folder level a test for checking the status no.\r",
+													"pm.test(\"Check status error message\", ()=> {\r",
+													"    const response = pm.response.json();\r",
+													"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2d1fca38-c98a-4d85-81c7-e1ef6f1c9a69",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{url}}/orders",
+										"description": "Returns all orders created by the API client."
+									},
+									"response": []
 								}
 							],
-							"id": "98985300-f3a7-4d52-9ae3-8e4575c33e4d",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"cartId\": \"{{cartId}}\",\r\n    \"customerName\": \"John Doe\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{url}}/orders",
-								"description": "The request body needs to be in JSON format. Once the order has been successfully submitted, the cart is deleted."
-							},
-							"response": []
-						},
-						{
-							"name": "Get all orders",
+							"id": "e134dd58-f6d8-4057-9c0c-8c1780001ff6",
 							"event": [
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "fd3ee0a1-46cc-4833-a4fa-e760c89451a8",
+										"id": "8b1a5c09-ab54-44b9-a5b1-24b33609ff22",
+										"type": "text/javascript",
+										"packages": {},
 										"exec": [
 											""
-										],
-										"type": "text/javascript",
-										"packages": {}
+										]
 									}
 								},
 								{
 									"listen": "test",
 									"script": {
-										"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
+										"id": "b7e7adeb-0462-4ab2-8335-9611106073a4",
+										"type": "text/javascript",
+										"packages": {},
 										"exec": [
-											"//there's also at folder level a test for checking the status no.\r",
 											"pm.test(\"Check status error message\", ()=> {\r",
 											"    const response = pm.response.json();\r",
 											"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
 											"});"
-										],
-										"type": "text/javascript",
-										"packages": {}
+										]
 									}
 								}
-							],
-							"id": "2d1fca38-c98a-4d85-81c7-e1ef6f1c9a69",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{url}}/orders",
-								"description": "Returns all orders created by the API client."
-							},
-							"response": []
-						}
-					],
-					"id": "e134dd58-f6d8-4057-9c0c-8c1780001ff6",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "8b1a5c09-ab54-44b9-a5b1-24b33609ff22",
-								"type": "text/javascript",
-								"packages": {},
-								"exec": [
-									""
-								]
-							}
+							]
 						},
 						{
-							"listen": "test",
-							"script": {
-								"id": "b7e7adeb-0462-4ab2-8335-9611106073a4",
-								"type": "text/javascript",
-								"packages": {},
-								"exec": [
-									"pm.test(\"Check status error message\", ()=> {\r",
-									"    const response = pm.response.json();\r",
-									"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
-									"});"
-								]
-							}
-						}
-					]
-				},
-				{
-					"name": "Invalid token",
-					"item": [
-						{
-							"name": "Create an order",
-							"event": [
+							"name": "Invalid token",
+							"item": [
 								{
-									"listen": "prerequest",
-									"script": {
-										"id": "042f20b2-4a11-401a-aa07-e8afcc6878d2",
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
-										"exec": [
-											"//there's also at folder level a test for checking the status no.\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "f99b0bbb-7dbc-4878-b3ea-248ff19e2a68",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "6b1422b732473dc4991dee9fe5e73e2c3a7b95a32633cfdcd643d08fbd7d49f"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"cartId\": \"{{cartId}}\",\r\n    \"customerName\": \"John Doe\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"name": "Create an order",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "042f20b2-4a11-401a-aa07-e8afcc6878d2",
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
+												"exec": [
+													"//there's also at folder level a test for checking the status no.\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
 										}
-									}
+									],
+									"id": "f99b0bbb-7dbc-4878-b3ea-248ff19e2a68",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "6b1422b732473dc4991dee9fe5e73e2c3a7b95a32633cfdcd643d08fbd7d49f"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"cartId\": \"{{cartId}}\",\r\n    \"customerName\": \"John Doe\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{url}}/orders",
+										"description": "The request body needs to be in JSON format. Once the order has been successfully submitted, the cart is deleted."
+									},
+									"response": []
 								},
-								"url": "{{url}}/orders",
-								"description": "The request body needs to be in JSON format. Once the order has been successfully submitted, the cart is deleted."
-							},
-							"response": []
-						},
-						{
-							"name": "Get all orders",
+								{
+									"name": "Get all orders",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "fd3ee0a1-46cc-4833-a4fa-e760c89451a8",
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
+												"exec": [
+													"//there's also at folder level a test for checking the status no.\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "0232b538-459b-4c59-baf1-2573f80c77e5",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "324434"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{url}}/orders",
+										"description": "Returns all orders created by the API client."
+									},
+									"response": []
+								}
+							],
+							"id": "f7817342-ffe2-42a1-bcaa-efd43416abf8",
 							"event": [
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "fd3ee0a1-46cc-4833-a4fa-e760c89451a8",
+										"id": "b75e4053-4c58-4a9a-bd65-b8c4bab383e1",
+										"type": "text/javascript",
+										"packages": {},
 										"exec": [
 											""
-										],
-										"type": "text/javascript",
-										"packages": {}
+										]
 									}
 								},
 								{
 									"listen": "test",
 									"script": {
-										"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
-										"exec": [
-											"//there's also at folder level a test for checking the status no.\r",
-											""
-										],
+										"id": "9836e6c7-be65-488c-b86b-f182a63c1097",
 										"type": "text/javascript",
-										"packages": {}
+										"packages": {},
+										"exec": [
+											"pm.test(\"Check status error message\", ()=> {\r",
+											"    const response = pm.response.json();\r",
+											"    pm.expect(response.error).to.eql(\"Invalid bearer token.\");\r",
+											"});"
+										]
 									}
 								}
-							],
-							"id": "0232b538-459b-4c59-baf1-2573f80c77e5",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "324434"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{url}}/orders",
-								"description": "Returns all orders created by the API client."
-							},
-							"response": []
+							]
 						}
 					],
-					"id": "f7817342-ffe2-42a1-bcaa-efd43416abf8",
+					"id": "5c2af188-7d67-4e98-aa06-4ac004a86f45",
 					"event": [
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "b75e4053-4c58-4a9a-bd65-b8c4bab383e1",
+								"id": "81d2c2df-acbc-4e06-bcc2-0be52f5c7849",
 								"type": "text/javascript",
 								"packages": {},
 								"exec": [
@@ -1274,13 +1307,12 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9836e6c7-be65-488c-b86b-f182a63c1097",
+								"id": "c8751513-f7db-453e-8d20-b39b0f8a6f85",
 								"type": "text/javascript",
 								"packages": {},
 								"exec": [
-									"pm.test(\"Check status error message\", ()=> {\r",
-									"    const response = pm.response.json();\r",
-									"    pm.expect(response.error).to.eql(\"Invalid bearer token.\");\r",
+									"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
 									"});"
 								]
 							}
@@ -1305,7 +1337,7 @@
 											"pm.test(\"Invalid category\", ()=>{",
 											"    const response = pm.response.json();",
 											"",
-											"     pm.expect(response.error).to.eql(\"Invalid value for query parameter 'category'. Must be one of: meat-seafood, fresh-produce, candy, bread-bakery, dairy, eggs, coffee\");",
+											"     //pm.expect(response.error).to.eql(\"Invalid value for query parameter 'category'. Must be one of: meat-seafood, fresh-produce, candy, bread-bakery, dairy, eggs, coffee\");",
 											"",
 											"     //to reduce the posibility of errors, can check just the first part of the message.",
 											"    pm.expect(response.error).to.have.string(\"Invalid value for query parameter 'category'.\");",
@@ -1368,15 +1400,16 @@
 							"response": []
 						},
 						{
-							"name": "Get all products Copy",
+							"name": "Get all products - invalid results param",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"id": "b7c8983d-62e6-49cd-b621-a9f295f040a6",
 										"exec": [
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
+											"\"Invalid value for query parameter 'results'. Cannot be greater than 20.\"",
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
 											"});"
 										],
 										"type": "text/javascript",
@@ -1403,7 +1436,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/products",
+									"raw": "{{url}}/products?results=21",
 									"host": [
 										"{{url}}"
 									],
@@ -1419,13 +1452,12 @@
 										},
 										{
 											"key": "results",
-											"value": "2",
-											"description": "Specifies the number of results you want. Must be number between 1 and 20. By default, only 20 products will be displayed.",
-											"disabled": true
+											"value": "21",
+											"description": "Specifies the number of results you want. Must be number between 1 and 20. By default, only 20 products will be displayed."
 										},
 										{
 											"key": "available",
-											"value": null,
+											"value": "",
 											"description": "Specifies the availability of the products. By default, all products will be displayed.",
 											"disabled": true
 										}
@@ -1444,7 +1476,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b2963200-729d-4ae2-98da-5b2ba147281e",
+						"id": "dd98ef04-e390-4f5b-a61f-474da8a64875",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
@@ -1455,13 +1487,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "dabed4ad-44a9-4929-9390-cee6ca0e8105",
+						"id": "f9dbbe00-d2bd-43c5-97b1-ecf76c96aa8c",
 						"type": "text/javascript",
 						"packages": {},
 						"exec": [
-							"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
-							"    pm.response.to.have.status(401);\r",
-							"});"
+							""
 						]
 					}
 				}
