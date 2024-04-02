@@ -630,6 +630,36 @@
 				},
 				{
 					"name": "Get all orders",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fd3ee0a1-46cc-4833-a4fa-e760c89451a8",
+								"exec": [
+									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
+								"exec": [
+									"pm.test(\"Status code is 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "9313f4b2-cc0a-4fa8-9943-19a6de24c90c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -650,6 +680,44 @@
 				},
 				{
 					"name": "Update an order",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b12e8c79-5393-4ebb-bc92-c2625ece729e",
+								"exec": [
+									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "9da410ef-3766-4f69-bbf7-54fdfdb9f047",
+								"exec": [
+									"pm.test(\"Status code is 204 No Content\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 400 Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 401 Not Authorised\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 404 Not Found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "0321bbea-f6d0-45cf-bd9d-25558f412fd6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -695,6 +763,44 @@
 				},
 				{
 					"name": "Delete an order",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7d1027d5-eaa8-4af8-a960-82ee8344f8cf",
+								"exec": [
+									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fc47fe97-d087-4659-ba36-26aa569a1396",
+								"exec": [
+									"pm.test(\"Status code is 204 No Content\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 400 Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 401 Not Authorised\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 404 Not Found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "d52d219c-9938-4522-b9bf-7b419b539c3f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -743,6 +849,27 @@
 								"id": "25506f19-0fcc-4288-8d38-6acf8855b978",
 								"exec": [
 									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "b8aea9cb-be58-412d-9733-b26618d832c4",
+								"exec": [
+									"pm.test(\"Status code is 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 400 Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 409 Conflict\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
