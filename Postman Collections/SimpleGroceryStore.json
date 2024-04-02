@@ -1323,7 +1323,7 @@
 					"name": "Invalid inputs",
 					"item": [
 						{
-							"name": "Get all products - invalid category",
+							"name": "Get all products - invalid category param",
 							"event": [
 								{
 									"listen": "test",
@@ -1400,7 +1400,81 @@
 							"response": []
 						},
 						{
-							"name": "Get all products - invalid results param",
+							"name": "Get all products - invalid results param min limit",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b7c8983d-62e6-49cd-b621-a9f295f040a6",
+										"exec": [
+											"pm.test(\"Response status is 400 Bad request\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Invalid results param\", ()=>{",
+											"    const response = pm.response.json();",
+											"",
+											"    pm.expect(response.error).to.have.string(\"Invalid value for query parameter 'results'. Must be greater than 0.\");",
+											"",
+											"",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "be20a562-fb15-46d7-a4ce-d3d9f2127f92",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "18ad0777-b06d-4096-accf-f0dff04d12e0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products?results=-1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "coffee",
+											"description": "Specifies the category of products you want to be returned. It can be one of: meat-seafood, fresh-produce, candy, bread-bakery, dairy, eggs, coffee.",
+											"disabled": true
+										},
+										{
+											"key": "available",
+											"value": "",
+											"description": "Specifies the availability of the products. By default, all products will be displayed.",
+											"disabled": true
+										},
+										{
+											"key": "results",
+											"value": "-1"
+										}
+									]
+								},
+								"description": "Returns a list of products from the inventory."
+							},
+							"response": []
+						},
+						{
+							"name": "Get all products - invalid results max limit",
 							"event": [
 								{
 									"listen": "test",
@@ -1434,7 +1508,7 @@
 									}
 								}
 							],
-							"id": "18ad0777-b06d-4096-accf-f0dff04d12e0",
+							"id": "b15b5697-0d50-488a-9085-fec6b8103dd6",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
