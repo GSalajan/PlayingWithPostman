@@ -1018,6 +1018,14 @@
 										"exec": [
 											"pm.test(\"Status code is 200 OK\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error message contains the deleted orderId\", ()=>{\r",
+											"    const response = pm.response.json();\r",
+											"    pm.expect(response).haveOwnProperty(\"error\");\r",
+											"\r",
+											"    const orderId = pm.collectionVariables.get(\"orderId\");\r",
+											"    pm.expect(response.error).to.contain(orderId);\r",
 											"});"
 										],
 										"type": "text/javascript",
