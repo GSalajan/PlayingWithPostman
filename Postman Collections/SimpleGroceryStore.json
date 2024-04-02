@@ -964,6 +964,93 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Get single order",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "68532938-224a-4dff-b140-d46ed88d3524",
+										"exec": [
+											"pm.test(\"Status code is 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "4f882827-2ba4-44cb-9073-c716b608e000",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/orders/:orderId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"orders",
+										":orderId"
+									],
+									"variable": [
+										{
+											"key": "orderId",
+											"value": "{{orderId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get order - error msg contains the deleted order id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "68532938-224a-4dff-b140-d46ed88d3524",
+										"exec": [
+											"pm.test(\"Status code is 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ba9e32b1-abec-440f-bf17-c28e8bcf8b1d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/orders/:orderId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"orders",
+										":orderId"
+									],
+									"variable": [
+										{
+											"id": "93105721-5b6a-4d61-a08d-2e89fde5fc0b",
+											"key": "orderId",
+											"value": "{{orderId}}"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"id": "360c20d6-1db3-4b9d-9f0c-590accce67c7"
