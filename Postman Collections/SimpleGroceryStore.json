@@ -571,9 +571,8 @@
 							"script": {
 								"id": "6d3ccb93-e3b8-4096-b8b9-cfcac1b011fc",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
+									"pm.test(\"Status code is 200\", \r",
+									"        () => pm.response.to.have.status(200));\r",
 									"\r",
 									"pm.test(\"Check the status\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
