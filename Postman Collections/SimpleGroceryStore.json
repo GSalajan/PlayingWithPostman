@@ -71,39 +71,9 @@
 							"script": {
 								"id": "b7c8983d-62e6-49cd-b621-a9f295f040a6",
 								"exec": [
-									"var template = `",
-									"<style type=\"text/css\">",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-									"    .tftable tr {background-color:#ffffff;}",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-									"    .tftable tr:hover {background-color:#e0ffff;}",
-									"</style>",
-									"",
-									"<table class=\"tftable\" border=\"1\">",
-									"    <tr>",
-									"        <th>ID</th>",
-									"        <th>Category</th>",
-									"        <th>Name</th>",
-									"        <th>In Stock</th>",
-									"    </tr>",
-									"    ",
-									"    {{#each response}}",
-									"        <tr>",
-									"            <td>{{id}}</td>",
-									"            <td>{{category}}</td>",
-									"            <td>{{name}}</td>",
-									"            <td>{{#if inStock}}Yes{{else}}No{{/if}}</td>",
-									"        </tr>",
-									"    {{/each}}",
-									"</table>",
-									"`;",
-									"",
-									"function constructVisualizerPayload() {",
-									"    return {response: pm.response.json()}",
-									"}",
-									"",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -165,7 +135,7 @@
 								"id": "36c5705f-6014-4ed2-b174-6deab28deb6d",
 								"exec": [
 									"pm.test(\"Successful POST request\", function () {\r",
-									"    pm.expect(pm.response.code).to.be(201);\r",
+									"    pm.expect(pm.response.code).to.be.eql(201);\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -187,6 +157,32 @@
 				},
 				{
 					"name": "Get cart",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0946606e-f6ef-4ef9-9bd5-89ea26069195",
+								"exec": [
+									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "3dbc3cbe-c362-4553-a089-742c760d292d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "3e1deb5f-c48a-4ae6-ba9b-fa73ab23aba8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -607,7 +603,9 @@
 									"pm.test(\"Check the status\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData.status).to.eql(\"UP\");\r",
-									"});"
+									"});\r",
+									"\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
