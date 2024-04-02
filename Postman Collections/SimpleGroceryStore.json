@@ -117,6 +117,11 @@
 											"",
 											"    const product = response[0];",
 											"    pm.expect(product).to.be.an(\"object\");",
+											"    pm.expect(product).to.haveOwnProperty(\"id\");",
+											"    pm.expect(product.id).to.be.a(\"number\");",
+											"    pm.expect(product).to.haveOwnProperty(\"inStock\");",
+											"    pm.expect(product.inStock).to.be.true;",
+											"",
 											"    pm.collectionVariables.set(\"productId\", response[0].id)",
 											"})"
 										],
