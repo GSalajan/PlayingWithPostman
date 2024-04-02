@@ -708,7 +708,18 @@
 											"\r",
 											"//pm.test(\"Status code is 401 Unauthorized\", function () {\r",
 											"//    pm.response.to.have.status(401);\r",
-											"//});"
+											"//});\r",
+											"\r",
+											"pm.test(\"Valid order has been created\", ()=>{\r",
+											"    const response = pm.response.json();\r",
+											"\r",
+											"    pm.expect(response).to.be.an(\"object\");\r",
+											"    pm.expect(response).to.haveOwnProperty(\"created\");\r",
+											"    pm.expect(response.created).to.be.true;\r",
+											"    pm.expect(response).to.haveOwnProperty(\"orderId\");\r",
+											"    pm.expect(response.orderId).to.be.a(\"string\");\r",
+											"    pm.collectionVariables.set(\"orderId\", response.orderId);\r",
+											"});"
 										],
 										"type": "text/javascript",
 										"packages": {}
