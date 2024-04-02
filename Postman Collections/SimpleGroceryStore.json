@@ -1016,8 +1016,8 @@
 									"script": {
 										"id": "68532938-224a-4dff-b140-d46ed88d3524",
 										"exec": [
-											"pm.test(\"Status code is 200 OK\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
 											"});\r",
 											"\r",
 											"pm.test(\"Error message contains the deleted orderId\", ()=>{\r",
