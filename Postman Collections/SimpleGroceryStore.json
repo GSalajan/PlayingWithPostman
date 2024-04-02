@@ -1048,10 +1048,6 @@
 									"script": {
 										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
 										"exec": [
-											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
-											"});\r",
-											"\r",
 											"pm.test(\"Check status error message\", ()=> {\r",
 											"    const response = pm.response.json();\r",
 											"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
@@ -1105,10 +1101,6 @@
 									"script": {
 										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
 										"exec": [
-											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
-											"});\r",
-											"\r",
 											"pm.test(\"Check status error message\", ()=> {\r",
 											"    const response = pm.response.json();\r",
 											"    pm.expect(response.error).to.eql(\"Invalid bearer token.\");\r",
@@ -1147,7 +1139,7 @@
 							"response": []
 						},
 						{
-							"name": "Get all orders Copy",
+							"name": "Get all orders - missing authentication header",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -1165,12 +1157,9 @@
 									"script": {
 										"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
 										"exec": [
-											"pm.test(\"Status code is 200 OK\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
+											"pm.test(\"Check status error message\", ()=> {\r",
+											"    const response = pm.response.json();\r",
+											"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
 											"});"
 										],
 										"type": "text/javascript",
@@ -1184,9 +1173,57 @@
 							},
 							"request": {
 								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/orders",
+								"description": "Returns all orders created by the API client."
+							},
+							"response": []
+						},
+						{
+							"name": "Get all orders - invalid token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "fd3ee0a1-46cc-4833-a4fa-e760c89451a8",
+										"exec": [
+											"console.clear();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
+										"exec": [
+											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check status error message\", ()=> {\r",
+											"    const response = pm.response.json();\r",
+											"    pm.expect(response.error).to.eql(\"Invalid bearer token.\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "0232b538-459b-4c59-baf1-2573f80c77e5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{accessToken}}"
+										"token": "324434"
 									}
 								},
 								"method": "GET",
@@ -1200,7 +1237,33 @@
 					"id": "6afa4d28-638f-4467-aa8d-2add3f1d2f11"
 				}
 			],
-			"id": "0260a8ac-dece-42a1-b7de-1edaa423c9d5"
+			"id": "0260a8ac-dece-42a1-b7de-1edaa423c9d5",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b2963200-729d-4ae2-98da-5b2ba147281e",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dabed4ad-44a9-4929-9390-cee6ca0e8105",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						]
+					}
+				}
+			]
 		}
 	],
 	"event": [
