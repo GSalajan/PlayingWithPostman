@@ -1148,7 +1148,7 @@
 									"script": {
 										"id": "fd3ee0a1-46cc-4833-a4fa-e760c89451a8",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1159,6 +1159,7 @@
 									"script": {
 										"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
 										"exec": [
+											"//there's also at folder level a test for checking the status no.\r",
 											"pm.test(\"Check status error message\", ()=> {\r",
 											"    const response = pm.response.json();\r",
 											"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
@@ -1192,7 +1193,7 @@
 									"script": {
 										"id": "fd3ee0a1-46cc-4833-a4fa-e760c89451a8",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1203,10 +1204,7 @@
 									"script": {
 										"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
 										"exec": [
-											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
-											"});\r",
-											"\r",
+											"//there's also at folder level a test for checking the status no.\r",
 											"pm.test(\"Check status error message\", ()=> {\r",
 											"    const response = pm.response.json();\r",
 											"    pm.expect(response.error).to.eql(\"Invalid bearer token.\");\r",
