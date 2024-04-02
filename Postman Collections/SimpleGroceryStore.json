@@ -927,7 +927,7 @@
 									"script": {
 										"id": "25506f19-0fcc-4288-8d38-6acf8855b978",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1037,7 +1037,7 @@
 									"script": {
 										"id": "042f20b2-4a11-401a-aa07-e8afcc6878d2",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1091,7 +1091,7 @@
 									"script": {
 										"id": "042f20b2-4a11-401a-aa07-e8afcc6878d2",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1102,6 +1102,7 @@
 									"script": {
 										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
 										"exec": [
+											"//there's also at folder level a test for checking the status no.\r",
 											"pm.test(\"Check status error message\", ()=> {\r",
 											"    const response = pm.response.json();\r",
 											"    pm.expect(response.error).to.eql(\"Invalid bearer token.\");\r",
