@@ -1300,7 +1300,13 @@
 										"exec": [
 											"pm.test(\"Status code is 400\", function () {",
 											"    pm.response.to.have.status(400);",
-											"});"
+											"});",
+											"",
+											"pm.test(\"Invalid category\", ()=>{",
+											"    const response = pm.response.json();",
+											"    pm.expect(response.error).to.eql(\"Invalid value for query parameter 'category'. Must be one of: meat-seafood, fresh-produce, candy, bread-bakery, dairy, eggs, coffee\");",
+											"",
+											"})"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1326,7 +1332,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/products",
+									"raw": "{{url}}/products?category=coffee4",
 									"host": [
 										"{{url}}"
 									],
@@ -1336,9 +1342,8 @@
 									"query": [
 										{
 											"key": "category",
-											"value": "coffee",
-											"description": "Specifies the category of products you want to be returned. It can be one of: meat-seafood, fresh-produce, candy, bread-bakery, dairy, eggs, coffee.",
-											"disabled": true
+											"value": "coffee4",
+											"description": "Specifies the category of products you want to be returned. It can be one of: meat-seafood, fresh-produce, candy, bread-bakery, dairy, eggs, coffee."
 										},
 										{
 											"key": "results",
@@ -1348,7 +1353,7 @@
 										},
 										{
 											"key": "available",
-											"value": null,
+											"value": "",
 											"description": "Specifies the availability of the products. By default, all products will be displayed.",
 											"disabled": true
 										}
