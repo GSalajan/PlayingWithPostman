@@ -109,7 +109,7 @@
 											"    pm.response.to.have.status(200);",
 											"});",
 											"",
-											"pm.test(\"\", ()=>{",
+											"pm.test(\"At least one available product exists\", ()=>{",
 											"    const response = pm.response.json();",
 											"    pm.collectionVariables.set(\"productId\", response[0].id)",
 											"})"
