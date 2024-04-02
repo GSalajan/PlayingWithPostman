@@ -520,7 +520,7 @@
 										},
 										{
 											"key": "itemId",
-											"value": "176001770"
+											"value": "{{itemId}}"
 										}
 									]
 								},
@@ -702,13 +702,13 @@
 											"    pm.response.to.have.status(201);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Status code is 400 Bad request\", function () {\r",
-											"    pm.response.to.have.status(400);\r",
-											"});\r",
+											"//pm.test(\"Status code is 400 Bad request\", function () {\r",
+											"//    pm.response.to.have.status(400);\r",
+											"//});\r",
 											"\r",
-											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
-											"});"
+											"//pm.test(\"Status code is 401 Unauthorized\", function () {\r",
+											"//    pm.response.to.have.status(401);\r",
+											"//});"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -765,9 +765,9 @@
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
-											"});"
+											"//pm.test(\"Status code is 401 Unauthorized\", function () {\r",
+											"//    pm.response.to.have.status(401);\r",
+											"//});"
 										],
 										"type": "text/javascript",
 										"packages": {}
