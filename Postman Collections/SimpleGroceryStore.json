@@ -1407,10 +1407,16 @@
 									"script": {
 										"id": "b7c8983d-62e6-49cd-b621-a9f295f040a6",
 										"exec": [
-											"\"Invalid value for query parameter 'results'. Cannot be greater than 20.\"",
-											"pm.test(\"Status code is 400\", function () {",
+											"pm.test(\"Response status is 400 Bad request\", function () {",
 											"    pm.response.to.have.status(400);",
-											"});"
+											"});",
+											"",
+											"pm.test(\"Invalid results param\", ()=>{",
+											"    const response = pm.response.json();",
+											"",
+											"    pm.expect(response.error).to.have.string(\"Invalid value for query parameter 'results'. Cannot be greater than 20.\");",
+											"",
+											"})"
 										],
 										"type": "text/javascript",
 										"packages": {}
