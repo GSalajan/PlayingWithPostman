@@ -240,6 +240,36 @@
 				},
 				{
 					"name": "Add an item to cart",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "089e1b72-d465-4455-8cdc-f19f9e03a49d",
+								"exec": [
+									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb5380e1-c2ad-4870-b77f-8781c262fa5f",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.eql(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Add an item to cart, with invalid params\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.eql(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "58340827-535d-4771-bb21-b218e42bdd6b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
