@@ -11,6 +11,21 @@
 			"item": [
 				{
 					"name": "Get single product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c4c21059-c06d-4f52-9263-e4e04cbbf0fa",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "74904045-6830-4f52-82b5-2233fd872e8a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -143,6 +158,21 @@
 			"item": [
 				{
 					"name": "Create a new cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "36c5705f-6014-4ed2-b174-6deab28deb6d",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "6464a708-91b4-4bf3-bc67-ebcfa57f8c33",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
