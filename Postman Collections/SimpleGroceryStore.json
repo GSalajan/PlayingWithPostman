@@ -383,6 +383,40 @@
 				},
 				{
 					"name": "Modify an item in the cart",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "38e4ca5f-8c9f-4350-9ec0-19939e57a842",
+								"exec": [
+									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1efde32e-229d-426e-b669-5c16366f8e60",
+								"exec": [
+									"pm.test(\"Status code is 204 No Content\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 400 Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 404 Not Found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "d10d4710-e02d-443f-980a-539cf68e3583",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -427,6 +461,29 @@
 				},
 				{
 					"name": "Replace an item in the cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bbbf008c-403f-4d82-96b2-35a9d29e11ec",
+								"exec": [
+									"pm.test(\"Status code is 204 No Content\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 400 Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 404 Not Found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "6089d265-0c2f-4b52-9bc8-f9a9d30c4532",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -473,6 +530,36 @@
 				},
 				{
 					"name": "Delete an item from the cart",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7e727ad4-9660-41e7-8d9a-4cad87cb32cb",
+								"exec": [
+									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "69141064-ae28-4e6f-8149-ed35839ee5f1",
+								"exec": [
+									"pm.test(\"Status code is 204 No Content\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 404 Not Found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "84b04fbe-e0ad-4682-9221-1262e6e2b954",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -649,6 +736,19 @@
 			"item": [
 				{
 					"name": "Register a new API client",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "25506f19-0fcc-4288-8d38-6acf8855b978",
+								"exec": [
+									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "b3d40689-da8d-47fc-a6d4-fb0aa7944d2d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
