@@ -111,6 +111,12 @@
 											"",
 											"pm.test(\"At least one available product exists\", ()=>{",
 											"    const response = pm.response.json();",
+											"",
+											"    pm.expect(response).to.be.an(\"array\");",
+											"    pm.expect(response.length).to.be.above(0);",
+											"",
+											"    const product = response[0];",
+											"    pm.expect(product).to.be.an(\"object\");",
 											"    pm.collectionVariables.set(\"productId\", response[0].id)",
 											"})"
 										],
