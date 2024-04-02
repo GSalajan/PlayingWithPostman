@@ -53,7 +53,7 @@
 									"script": {
 										"id": "c93f6345-ef96-4b16-8419-89e7fb75f00d",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -118,7 +118,7 @@
 									"script": {
 										"id": "be20a562-fb15-46d7-a4ce-d3d9f2127f92",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -192,7 +192,7 @@
 									"script": {
 										"id": "350cb981-1647-47c0-9147-44d342b542a6",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -219,7 +219,7 @@
 									"script": {
 										"id": "0946606e-f6ef-4ef9-9bd5-89ea26069195",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -280,7 +280,7 @@
 									"script": {
 										"id": "089e1b72-d465-4455-8cdc-f19f9e03a49d",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -362,7 +362,7 @@
 									"script": {
 										"id": "22c90ae8-ced8-43fd-8b52-806b663670f3",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -423,7 +423,7 @@
 									"script": {
 										"id": "38e4ca5f-8c9f-4350-9ec0-19939e57a842",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -522,7 +522,7 @@
 									"script": {
 										"id": "15b1e004-e3ff-41cd-a3f4-22fa259cad63",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -581,7 +581,7 @@
 									"script": {
 										"id": "7e727ad4-9660-41e7-8d9a-4cad87cb32cb",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -652,7 +652,7 @@
 									"script": {
 										"id": "042f20b2-4a11-401a-aa07-e8afcc6878d2",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -715,7 +715,7 @@
 									"script": {
 										"id": "fd3ee0a1-46cc-4833-a4fa-e760c89451a8",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -765,7 +765,7 @@
 									"script": {
 										"id": "b12e8c79-5393-4ebb-bc92-c2625ece729e",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -848,7 +848,7 @@
 									"script": {
 										"id": "7d1027d5-eaa8-4af8-a960-82ee8344f8cf",
 										"exec": [
-											"console.clear();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1048,6 +1048,7 @@
 									"script": {
 										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
 										"exec": [
+											"//there's also at folder level a test for checking the status no.\r",
 											"pm.test(\"Check status error message\", ()=> {\r",
 											"    const response = pm.response.json();\r",
 											"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
@@ -1270,18 +1271,18 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8e70775c-2f69-42a0-a836-44aec1c0a620",
+				"id": "137ea1ff-970e-4624-9feb-fae37fbb8fe2",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					""
+					"console.clear();"
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "c247a46e-cc3d-4180-8025-25d5b6aa8411",
+				"id": "838dd104-f909-4c29-bb25-b1ca523a6c47",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
