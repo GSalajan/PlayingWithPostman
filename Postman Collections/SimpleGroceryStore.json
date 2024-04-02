@@ -88,7 +88,7 @@
 									"variable": [
 										{
 											"key": "productId",
-											"value": "4646",
+											"value": "{{productId}}",
 											"description": "Specifies the product's id you wish to retrieve."
 										}
 									]
@@ -107,7 +107,12 @@
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
-											"});"
+											"});",
+											"",
+											"pm.test(\"\", ()=>{",
+											"    const response = pm.response.json();",
+											"    pm.collectionVariables.set(\"productId\", response[0].id)",
+											"})"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -313,7 +318,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"productId\": 4643\r\n}",
+									"raw": "{\r\n    \"productId\": {{productId}}\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1616,6 +1621,10 @@
 			"key": "cartId",
 			"value": "wyCNrNCmLe9_MIYb3JfCn",
 			"type": "string"
+		},
+		{
+			"key": "productId",
+			"value": ""
 		}
 	]
 }
