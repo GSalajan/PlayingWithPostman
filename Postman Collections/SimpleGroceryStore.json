@@ -1048,6 +1048,63 @@
 									"script": {
 										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
 										"exec": [
+											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check status error message\", ()=> {\r",
+											"    const response = pm.response.json();\r",
+											"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "98985300-f3a7-4d52-9ae3-8e4575c33e4d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cartId\": \"{{cartId}}\",\r\n    \"customerName\": \"John Doe\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/orders",
+								"description": "The request body needs to be in JSON format. Once the order has been successfully submitted, the cart is deleted."
+							},
+							"response": []
+						},
+						{
+							"name": "Create an order Copy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "042f20b2-4a11-401a-aa07-e8afcc6878d2",
+										"exec": [
+											"console.clear();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
+										"exec": [
 											"pm.test(\"Status code is 201 Created\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
 											"});\r",
@@ -1065,13 +1122,16 @@
 									}
 								}
 							],
-							"id": "98985300-f3a7-4d52-9ae3-8e4575c33e4d",
+							"id": "f99b0bbb-7dbc-4878-b3ea-248ff19e2a68",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"auth": {
-									"type": "noauth"
+									"type": "bearer",
+									"bearer": {
+										"token": "{{accessToken}}"
+									}
 								},
 								"method": "POST",
 								"header": [],
