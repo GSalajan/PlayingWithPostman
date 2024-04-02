@@ -473,13 +473,13 @@
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Status code is 400 Bad request\", function () {\r",
-											"    pm.response.to.have.status(400);\r",
-											"});\r",
+											"//pm.test(\"Status code is 400 Bad request\", function () {\r",
+											"//    pm.response.to.have.status(400);\r",
+											"//});\r",
 											"\r",
-											"pm.test(\"Status code is 404 Not Found\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
-											"});"
+											"//pm.test(\"Status code is 404 Not Found\", function () {\r",
+											"//    pm.response.to.have.status(404);\r",
+											"//});"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -540,13 +540,13 @@
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Status code is 400 Bad request\", function () {\r",
-											"    pm.response.to.have.status(400);\r",
-											"});\r",
+											"//pm.test(\"Status code is 400 Bad request\", function () {\r",
+											"//    pm.response.to.have.status(400);\r",
+											"//});\r",
 											"\r",
-											"pm.test(\"Status code is 404 Not Found\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
-											"});"
+											"//pm.test(\"Status code is 404 Not Found\", function () {\r",
+											" //   pm.response.to.have.status(404);\r",
+											"//});"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -826,17 +826,17 @@
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Status code is 400 Bad request\", function () {\r",
-											"    pm.response.to.have.status(400);\r",
-											"});\r",
+											"//pm.test(\"Status code is 400 Bad request\", function () {\r",
+											"//    pm.response.to.have.status(400);\r",
+											"//});\r",
 											"\r",
-											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
-											"});\r",
+											"//pm.test(\"Status code is 401 Unauthorized\", function () {\r",
+											"//    pm.response.to.have.status(401);\r",
+											"//});\r",
 											"\r",
-											"pm.test(\"Status code is 404 Not Found\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
-											"});"
+											"//pm.test(\"Status code is 404 Not Found\", function () {\r",
+											"//   pm.response.to.have.status(404);\r",
+											"//});"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -858,7 +858,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"comment\": \"pickup at 2PM\"\r\n}",
+									"raw": "{\r\n    \"comment\": \"pickup at 6PM\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -877,7 +877,7 @@
 									"variable": [
 										{
 											"key": "orderId",
-											"value": "Or_JyaXdazCTImPni-8AC",
+											"value": "{{orderId}}",
 											"description": "The order id."
 										}
 									]
@@ -951,7 +951,7 @@
 									"variable": [
 										{
 											"key": "orderId",
-											"value": "Or_JyaXdazCTImPni-8AC",
+											"value": "{{orderId}}",
 											"description": "The order id."
 										}
 									]
@@ -1669,6 +1669,10 @@
 		},
 		{
 			"key": "itemId",
+			"value": ""
+		},
+		{
+			"key": "orderId",
 			"value": ""
 		}
 	]
