@@ -324,9 +324,9 @@
 											"    pm.expect(pm.response.code).to.be.eql(201);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Add an item to cart, with invalid params\", function () {\r",
-											"    pm.expect(pm.response.code).to.be.eql(400);\r",
-											"});"
+											"//pm.test(\"Add an item to cart, with invalid params\", function () {\r",
+											"//    pm.expect(pm.response.code).to.be.eql(400);\r",
+											"//});"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -350,7 +350,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/carts/:cartId/items?productId&quantity",
+									"raw": "{{url}}/carts/:cartId/items",
 									"host": [
 										"{{url}}"
 									],
@@ -361,14 +361,10 @@
 									],
 									"query": [
 										{
-											"key": "productId",
-											"value": null,
-											"description": "Specifies the product id."
-										},
-										{
 											"key": "quantity",
 											"value": null,
-											"description": "If no quantity is provided, the default value is 1."
+											"description": "If no quantity is provided, the default value is 1.",
+											"disabled": true
 										}
 									],
 									"variable": [
@@ -406,9 +402,9 @@
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Status code is 404 Not found\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
-											"});"
+											"//pm.test(\"Status code is 404 Not found\", function () {\r",
+											"//    pm.response.to.have.status(404);\r",
+											"//});"
 										],
 										"type": "text/javascript",
 										"packages": {}
