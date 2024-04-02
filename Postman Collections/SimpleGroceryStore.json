@@ -163,6 +163,17 @@
 								"type": "text/javascript",
 								"packages": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "350cb981-1647-47c0-9147-44d342b542a6",
+								"exec": [
+									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
 					],
 					"id": "6464a708-91b4-4bf3-bc67-ebcfa57f8c33",
@@ -482,6 +493,17 @@
 								"type": "text/javascript",
 								"packages": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "15b1e004-e3ff-41cd-a3f4-22fa259cad63",
+								"exec": [
+									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
 					],
 					"id": "6089d265-0c2f-4b52-9bc8-f9a9d30c4532",
@@ -601,6 +623,40 @@
 			"item": [
 				{
 					"name": "Create an order",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "042f20b2-4a11-401a-aa07-e8afcc6878d2",
+								"exec": [
+									"console.clear();"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
+								"exec": [
+									"pm.test(\"Status code is 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 400 Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "cc1ed4a6-2d12-40d0-9931-b519e36a61bd",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -705,7 +761,7 @@
 									"    pm.response.to.have.status(400);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Status code is 401 Not Authorised\", function () {\r",
+									"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
 									"    pm.response.to.have.status(401);\r",
 									"});\r",
 									"\r",
@@ -788,7 +844,7 @@
 									"    pm.response.to.have.status(400);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Status code is 401 Not Authorised\", function () {\r",
+									"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
 									"    pm.response.to.have.status(401);\r",
 									"});\r",
 									"\r",
