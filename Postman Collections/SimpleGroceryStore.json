@@ -1087,7 +1087,7 @@
 							"response": []
 						},
 						{
-							"name": "Create an order Copy",
+							"name": "Create an order - Invalid token",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -1105,16 +1105,13 @@
 									"script": {
 										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
 										"exec": [
-											"pm.test(\"Status code is 201 Created\", function () {\r",
-											"    pm.response.to.have.status(201);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Status code is 400 Bad request\", function () {\r",
-											"    pm.response.to.have.status(400);\r",
-											"});\r",
-											"\r",
 											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
 											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Check status error message\", ()=> {\r",
+											"    const response = pm.response.json();\r",
+											"    pm.expect(response.error).to.eql(\"Invalid bearer token.\");\r",
 											"});"
 										],
 										"type": "text/javascript",
@@ -1130,7 +1127,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{accessToken}}"
+										"token": "6b1422b732473dc4991dee9fe5e73e2c3a7b95a32633cfdcd643d08fbd7d49f"
 									}
 								},
 								"method": "POST",
@@ -1146,6 +1143,56 @@
 								},
 								"url": "{{url}}/orders",
 								"description": "The request body needs to be in JSON format. Once the order has been successfully submitted, the cart is deleted."
+							},
+							"response": []
+						},
+						{
+							"name": "Get all orders Copy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "fd3ee0a1-46cc-4833-a4fa-e760c89451a8",
+										"exec": [
+											"console.clear();"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
+										"exec": [
+											"pm.test(\"Status code is 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "2d1fca38-c98a-4d85-81c7-e1ef6f1c9a69",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{accessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/orders",
+								"description": "Returns all orders created by the API client."
 							},
 							"response": []
 						}
