@@ -1291,15 +1291,15 @@
 					"name": "Invalid inputs",
 					"item": [
 						{
-							"name": "Get all products Copy",
+							"name": "Get all products - invalid category",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"id": "b7c8983d-62e6-49cd-b621-a9f295f040a6",
 										"exec": [
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
 											"});"
 										],
 										"type": "text/javascript",
