@@ -326,7 +326,17 @@
 											"\r",
 											"//pm.test(\"Add an item to cart, with invalid params\", function () {\r",
 											"//    pm.expect(pm.response.code).to.be.eql(400);\r",
-											"//});"
+											"//});\r",
+											"\r",
+											"pm.test(\"Valid item added to the cart\", ()=>{\r",
+											"    const response = pm.response.json();\r",
+											"\r",
+											"    pm.expect(response).to.be.an(\"object\");\r",
+											"    pm.expect(response).to.haveOwnProperty(\"created\");\r",
+											"    pm.expect(response.created).to.be.true;\r",
+											"    pm.expect(response).to.haveOwnProperty(\"itemId\");\r",
+											"    pm.collectionVariables.set(\"itemId\", response.itemId);\r",
+											"});"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -589,7 +599,7 @@
 										},
 										{
 											"key": "itemId",
-											"value": "176001770",
+											"value": "{{itemId}}",
 											"description": "Specifies the item id."
 										}
 									]
@@ -621,9 +631,9 @@
 											"    pm.response.to.have.status(204);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Status code is 404 Not Found\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
-											"});"
+											"//pm.test(\"Status code is 404 Not Found\", function () {\r",
+											"//    pm.response.to.have.status(404);\r",
+											"//});"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -655,7 +665,7 @@
 										},
 										{
 											"key": "itemId",
-											"value": "27057726"
+											"value": "{{itemId}}"
 										}
 									]
 								},
@@ -1644,6 +1654,10 @@
 		},
 		{
 			"key": "productId",
+			"value": ""
+		},
+		{
+			"key": "itemId",
 			"value": ""
 		}
 	]
