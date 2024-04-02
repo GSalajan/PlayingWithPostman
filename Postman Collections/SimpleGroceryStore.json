@@ -1030,7 +1030,7 @@
 					"name": "Missing authentication",
 					"item": [
 						{
-							"name": "Create an order - missing authentication",
+							"name": "Create an order",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -1049,10 +1049,7 @@
 										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
 										"exec": [
 											"//there's also at folder level a test for checking the status no.\r",
-											"pm.test(\"Check status error message\", ()=> {\r",
-											"    const response = pm.response.json();\r",
-											"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
-											"});"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1084,7 +1081,7 @@
 							"response": []
 						},
 						{
-							"name": "Get all orders - missing authentication header",
+							"name": "Get all orders",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -1129,13 +1126,40 @@
 							"response": []
 						}
 					],
-					"id": "e134dd58-f6d8-4057-9c0c-8c1780001ff6"
+					"id": "e134dd58-f6d8-4057-9c0c-8c1780001ff6",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8b1a5c09-ab54-44b9-a5b1-24b33609ff22",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "b7e7adeb-0462-4ab2-8335-9611106073a4",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"pm.test(\"Check status error message\", ()=> {\r",
+									"    const response = pm.response.json();\r",
+									"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
+									"});"
+								]
+							}
+						}
+					]
 				},
 				{
 					"name": "Invalid token",
 					"item": [
 						{
-							"name": "Create an order - Invalid token",
+							"name": "Create an order",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -1154,10 +1178,7 @@
 										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
 										"exec": [
 											"//there's also at folder level a test for checking the status no.\r",
-											"pm.test(\"Check status error message\", ()=> {\r",
-											"    const response = pm.response.json();\r",
-											"    pm.expect(response.error).to.eql(\"Invalid bearer token.\");\r",
-											"});"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1192,7 +1213,7 @@
 							"response": []
 						},
 						{
-							"name": "Get all orders - invalid token",
+							"name": "Get all orders",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -1211,10 +1232,7 @@
 										"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
 										"exec": [
 											"//there's also at folder level a test for checking the status no.\r",
-											"pm.test(\"Check status error message\", ()=> {\r",
-											"    const response = pm.response.json();\r",
-											"    pm.expect(response.error).to.eql(\"Invalid bearer token.\");\r",
-											"});"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1245,7 +1263,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "b2963200-729d-4ae2-98da-5b2ba147281e",
+								"id": "b75e4053-4c58-4a9a-bd65-b8c4bab383e1",
 								"type": "text/javascript",
 								"packages": {},
 								"exec": [
@@ -1256,122 +1274,18 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "dabed4ad-44a9-4929-9390-cee6ca0e8105",
+								"id": "9836e6c7-be65-488c-b86b-f182a63c1097",
 								"type": "text/javascript",
 								"packages": {},
 								"exec": [
-									"pm.test(\"Status code is 401 Unauthorized\", function () {\r",
-									"    pm.response.to.have.status(401);\r",
+									"pm.test(\"Check status error message\", ()=> {\r",
+									"    const response = pm.response.json();\r",
+									"    pm.expect(response.error).to.eql(\"Invalid bearer token.\");\r",
 									"});"
 								]
 							}
 						}
 					]
-				},
-				{
-					"name": "Missing authentication",
-					"item": [
-						{
-							"name": "Create an order - missing authentication",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "042f20b2-4a11-401a-aa07-e8afcc6878d2",
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"id": "ab5c3f6e-c51d-4a0e-b336-67180fdc8790",
-										"exec": [
-											"//there's also at folder level a test for checking the status no.\r",
-											"pm.test(\"Check status error message\", ()=> {\r",
-											"    const response = pm.response.json();\r",
-											"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
-											"});"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "d75e1865-5eda-400b-9651-fa376d54ad22",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"cartId\": \"{{cartId}}\",\r\n    \"customerName\": \"John Doe\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{url}}/orders",
-								"description": "The request body needs to be in JSON format. Once the order has been successfully submitted, the cart is deleted."
-							},
-							"response": []
-						},
-						{
-							"name": "Get all orders - missing authentication header",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "fd3ee0a1-46cc-4833-a4fa-e760c89451a8",
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
-										"exec": [
-											"//there's also at folder level a test for checking the status no.\r",
-											"pm.test(\"Check status error message\", ()=> {\r",
-											"    const response = pm.response.json();\r",
-											"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
-											"});"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "c336ce77-eb63-4885-9b1c-bd4d634d721d",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{url}}/orders",
-								"description": "Returns all orders created by the API client."
-							},
-							"response": []
-						}
-					],
-					"id": "483b9a57-1056-4687-a2bd-156f422aa190"
 				}
 			],
 			"id": "0260a8ac-dece-42a1-b7de-1edaa423c9d5",
