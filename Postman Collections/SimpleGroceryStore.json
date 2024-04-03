@@ -464,7 +464,8 @@
 									"script": {
 										"id": "38e4ca5f-8c9f-4350-9ec0-19939e57a842",
 										"exec": [
-											""
+											"//replace the hardcoded value in the body\r",
+											"pm.collectionVariables.set(\"randomQuantity\", 3);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -501,7 +502,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"quantity\": 2\r\n}",
+									"raw": "{\r\n    \"quantity\": {{randomQuantity}}\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
