@@ -784,7 +784,13 @@
 											"\r",
 											"//pm.test(\"Status code is 401 Unauthorized\", function () {\r",
 											"//    pm.response.to.have.status(401);\r",
-											"//});"
+											"//});\r",
+											"\r",
+											"const response = pm.response.json();\r",
+											"for (let i=0; i<response.length; i++)\r",
+											"{\r",
+											"    console.log(response[i].id);\r",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
