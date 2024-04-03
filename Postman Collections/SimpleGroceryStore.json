@@ -465,7 +465,13 @@
 										"id": "38e4ca5f-8c9f-4350-9ec0-19939e57a842",
 										"exec": [
 											"//replace the hardcoded value in the body\r",
-											"pm.collectionVariables.set(\"randomQuantity\", 3);"
+											"function getRandomNumber(maxValue){\r",
+											"    return Math.floor(Math.random()*maxValue);\r",
+											"}\r",
+											"\r",
+											"pm.collectionVariables.set(\"randomQuantity\", getRandomNumber(14));\r",
+											"\r",
+											"//improving idea: make sure we don't get 0 for the randomNumber"
 										],
 										"type": "text/javascript",
 										"packages": {}
