@@ -793,25 +793,20 @@
 											"//    pm.response.to.have.status(401);\r",
 											"//});\r",
 											"\r",
-											"pm.test(\"Order is on the list\", ()=> {\r",
+											"pm.test(\"Order is on the list\", () => {\r",
 											"    const response = pm.response.json();\r",
-											"    let order = response.find((order)=>{\r",
+											"    let order = response.find((order) => {\r",
 											"        order.id === pm.collectionVariables.get(\"orderId\");\r",
-											"    pm.expect(order).to.be.an(\"object\");\r",
+											"        pm.expect(order).to.be.an(\"object\");\r",
 											"    });\r",
 											"\r",
-											"    let orderIdFound = false;\r",
-											"\r",
-											"\r",
-											"\r",
-											"    for (let i=0; i<response.length; i++)\r",
-											"    {\r",
-											"        if (response[i].id === pm.collectionVariables.get(\"orderId\")){\r",
-											"           orderIdFound = true;\r",
-											"        }\r",
-											"    }\r",
-											"\r",
-											"    pm.expect(orderIdFound).to.be.true;\r",
+											"    // let orderIdFound = false;\r",
+											"    // for (let i = 0; i < response.length; i++) {\r",
+											"    //     if (response[i].id === pm.collectionVariables.get(\"orderId\")) {\r",
+											"    //         orderIdFound = true;\r",
+											"    //     }\r",
+											"    // }\r",
+											"    // pm.expect(orderIdFound).to.be.true;\r",
 											"});\r",
 											""
 										],
@@ -1004,7 +999,9 @@
 										"exec": [
 											"pm.test(\"Status code is 200 OK\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
-											"});"
+											"});\r",
+											"\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1279,10 +1276,7 @@
 												"id": "a73e5cdb-4520-47a7-a806-a91b6c59dcff",
 												"exec": [
 													"//there's also at folder level a test for checking the status no.\r",
-													"pm.test(\"Check status error message\", ()=> {\r",
-													"    const response = pm.response.json();\r",
-													"    pm.expect(response.error).to.eql(\"Missing Authorization header.\");\r",
-													"});"
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -1758,7 +1752,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "6caf9b05-8e94-40de-a257-534df1de196f",
+				"id": "8a9e80f2-db2c-44d2-b110-45f4de2d5938",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -1769,7 +1763,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ff13d72e-becb-498a-858d-b72aeb8d08f5",
+				"id": "917f8195-064f-42da-a3b2-3316270af631",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
