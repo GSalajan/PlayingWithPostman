@@ -1579,6 +1579,8 @@
 									"script": {
 										"id": "b7c8983d-62e6-49cd-b621-a9f295f040a6",
 										"exec": [
+											"//don't want to run these tests on production environment",
+											"if (pm.environment.name === 'Testing'){",
 											"pm.test(\"Response status is 400 Bad request\", function () {",
 											"    pm.response.to.have.status(400);",
 											"});",
@@ -1589,7 +1591,8 @@
 											"    pm.expect(response.error).to.have.string(\"Invalid value for query parameter 'results'. Must be greater than 0.\");",
 											"",
 											"",
-											"})"
+											"});",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
