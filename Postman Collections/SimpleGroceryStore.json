@@ -1722,90 +1722,6 @@
 								"description": "Returns a list of products from the inventory."
 							},
 							"response": []
-						},
-						{
-							"name": "Get all products Copy",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "b7c8983d-62e6-49cd-b621-a9f295f040a6",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
-											"});",
-											"",
-											"pm.test(\"At least one available product exists\", ()=>{",
-											"    const response = pm.response.json();",
-											"",
-											"    pm.expect(response).to.be.an(\"array\");",
-											"    pm.expect(response.length).to.be.above(0);",
-											"",
-											"    const product = response[0];",
-											"    pm.expect(product).to.be.an(\"object\");",
-											"    pm.expect(product).to.haveOwnProperty(\"id\");",
-											"    pm.expect(product.id).to.be.a(\"number\");",
-											"    pm.expect(product).to.haveOwnProperty(\"inStock\");",
-											"    pm.expect(product.inStock).to.be.true;",
-											"",
-											"    pm.collectionVariables.set(\"productId\", response[0].id)",
-											"})"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "be20a562-fb15-46d7-a4ce-d3d9f2127f92",
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "8f4bf1e7-036b-4114-a928-ce90a075413f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/products",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"products"
-									],
-									"query": [
-										{
-											"key": "category",
-											"value": "coffee",
-											"description": "Specifies the category of products you want to be returned. It can be one of: meat-seafood, fresh-produce, candy, bread-bakery, dairy, eggs, coffee.",
-											"disabled": true
-										},
-										{
-											"key": "results",
-											"value": "2",
-											"description": "Specifies the number of results you want. Must be number between 1 and 20. By default, only 20 products will be displayed.",
-											"disabled": true
-										},
-										{
-											"key": "available",
-											"value": null,
-											"description": "Specifies the availability of the products. By default, all products will be displayed.",
-											"disabled": true
-										}
-									]
-								},
-								"description": "Returns a list of products from the inventory."
-							},
-							"response": []
 						}
 					],
 					"id": "30b9b1cb-a386-41e6-b3f8-02ff35fb357e"
@@ -1842,7 +1758,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "137ea1ff-970e-4624-9feb-fae37fbb8fe2",
+				"id": "6caf9b05-8e94-40de-a257-534df1de196f",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -1853,7 +1769,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "838dd104-f909-4c29-bb25-b1ca523a6c47",
+				"id": "ff13d72e-becb-498a-858d-b72aeb8d08f5",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
