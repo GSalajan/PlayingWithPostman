@@ -789,7 +789,9 @@
 											"const response = pm.response.json();\r",
 											"for (let i=0; i<response.length; i++)\r",
 											"{\r",
-											"    console.log(response[i].id);\r",
+											"    if (response[i].id === pm.collectionVariables.get(\"orderId\")){\r",
+											"         console.log(\"Found it!\");\r",
+											"    }\r",
 											"}"
 										],
 										"type": "text/javascript",
