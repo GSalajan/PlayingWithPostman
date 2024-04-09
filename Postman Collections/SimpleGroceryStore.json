@@ -1589,21 +1589,23 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b7c8983d-62e6-49cd-b621-a9f295f040a6",
+										"id": "2c2eff1a-2bfd-4985-a2ef-8a5eb7ee86ee",
 										"exec": [
 											"//don't want to run these tests on production environment",
 											"if (pm.environment.name === 'Testing'){",
-											"pm.test(\"Response status is 400 Bad request\", function () {",
-											"    pm.response.to.have.status(400);",
-											"});",
+											"    pm.test(\"Response status is 400 Bad request\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
 											"",
-											"pm.test(\"Invalid results param\", ()=>{",
-											"    const response = pm.response.json();",
+											"    pm.test(\"Invalid results param\", ()=>{",
+											"        const response = pm.response.json();",
 											"",
-											"    pm.expect(response.error).to.have.string(\"Invalid value for query parameter 'results'. Must be greater than 0.\");",
+											"        pm.expect(response.error).to.have.string(\"Invalid value for query parameter 'results'. Must be greater than 0.\");",
 											"",
 											"",
-											"});",
+											"    });",
+											"",
+											"",
 											"}"
 										],
 										"type": "text/javascript",
@@ -1613,7 +1615,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "be20a562-fb15-46d7-a4ce-d3d9f2127f92",
+										"id": "3daeaa58-89e9-4dbb-842d-d01a87379929",
 										"exec": [
 											""
 										],
