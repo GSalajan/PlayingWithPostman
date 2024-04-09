@@ -33,7 +33,7 @@
 											"\r",
 											"pm.test(\"Check correct product was received\", ()=> {\r",
 											"    pm.expect(response).haveOwnProperty(\"id\");\r",
-											"    pm.expect(response.id).is.eql(pm.collectionVariables.get(\"productId\"));\r",
+											"    pm.expect(response.id).is.eql(pm.environment.get(\"productId\"));\r",
 											"});\r",
 											"\r",
 											"pm.test(\"Check product name is valid\", () => {\r",
