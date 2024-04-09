@@ -127,7 +127,7 @@
 											"    pm.expect(product).to.haveOwnProperty(\"inStock\");",
 											"    pm.expect(product.inStock).to.be.true;",
 											"",
-											"    pm.collectionVariables.set(\"productId\", response[0].id)",
+											"    pm.environment.set(\"productId\", response[0].id)",
 											"})"
 										],
 										"type": "text/javascript",
