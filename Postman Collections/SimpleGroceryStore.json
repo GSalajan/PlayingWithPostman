@@ -1052,7 +1052,7 @@
 											"    const response = pm.response.json();\r",
 											"    pm.expect(response).haveOwnProperty(\"error\");\r",
 											"\r",
-											"    const orderId = pm.collectionVariables.get(\"orderId\");\r",
+											"    const orderId = pm.variables.get(\"orderId\");\r",
 											"    pm.expect(response.error).to.contain(orderId);\r",
 											"});"
 										],
