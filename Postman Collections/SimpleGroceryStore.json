@@ -214,7 +214,7 @@
 											"    pm.expect(response).to.haveOwnProperty(\"cartId\");\r",
 											"    pm.expect(response.cartId).to.be.a(\"string\");\r",
 											"\r",
-											"    pm.collectionVariables.set(\"cartId\", response.cartId);\r",
+											"    pm.environment.set(\"cartId\", response.cartId);\r",
 											"})"
 										],
 										"type": "text/javascript",
