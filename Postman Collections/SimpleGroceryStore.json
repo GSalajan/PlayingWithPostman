@@ -343,7 +343,7 @@
 											"    pm.expect(response.created).to.be.true;\r",
 											"    pm.expect(response).to.haveOwnProperty(\"itemId\");\r",
 											"    pm.expect(response.itemId).is.a(\"number\");\r",
-											"    pm.collectionVariables.set(\"itemId\", response.itemId);\r",
+											"    pm.environment.set(\"itemId\", response.itemId);\r",
 											"});"
 										],
 										"type": "text/javascript",
