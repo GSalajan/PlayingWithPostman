@@ -804,7 +804,7 @@
 											"\r",
 											"    // let orderIdFound = false;\r",
 											"    // for (let i = 0; i < response.length; i++) {\r",
-											"    //     if (response[i].id === pm.collectionVariables.get(\"orderId\")) {\r",
+											"    //     if (response[i].id === pm.variables.get(\"orderId\")) {\r",
 											"    //         orderIdFound = true;\r",
 											"    //     }\r",
 											"    // }\r",
