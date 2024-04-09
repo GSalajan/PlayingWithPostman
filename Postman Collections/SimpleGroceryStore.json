@@ -1757,7 +1757,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "03473ac1-0bea-408a-8652-aec8e4b3b462",
+				"id": "6997d13d-eb6d-4586-88dd-4106133bc162",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -1768,7 +1768,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "dafc36ff-7b6c-4dff-8ff6-19d36835da1a",
+				"id": "ae72fb70-620d-4eba-baa4-a3b53fde407b",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -1786,23 +1786,6 @@
 			"key": "accessToken",
 			"value": "Your access token",
 			"type": "string"
-		},
-		{
-			"key": "cartId",
-			"value": "wyCNrNCmLe9_MIYb3JfCn",
-			"type": "string"
-		},
-		{
-			"key": "productId",
-			"value": ""
-		},
-		{
-			"key": "itemId",
-			"value": ""
-		},
-		{
-			"key": "orderId",
-			"value": ""
 		}
 	]
 }
