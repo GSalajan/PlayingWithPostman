@@ -798,7 +798,7 @@
 											"pm.test(\"Order is on the list\", () => {\r",
 											"    const response = pm.response.json();\r",
 											"    let order = response.find((order) => {\r",
-											"        order.id === pm.collectionVariables.get(\"orderId\");\r",
+											"        order.id === pm.variables.get(\"orderId\");\r",
 											"        pm.expect(order).to.be.an(\"object\");\r",
 											"    });\r",
 											"\r",
